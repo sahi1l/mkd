@@ -17,9 +17,7 @@ class MetaRender(type):
         renderers[render_type] = cls()
 
 
-class BaseRender(object):
-    __metaclass__ = MetaRender
-
+class BaseRender(metaclass=MetaRender):
     def render(self, exp):
         return self.render_tpl.render(exp)
 
@@ -58,9 +56,9 @@ class lineRender(BaseRender):
     render_tpl  = Template(
             '<p>{% for l in line %}'
             '{% if l.type == "BOLD" %}'
-            '<b> {{ l.line }} </b>'
+            '<b>{{ l.line }}</b>'
             '{% elif l.type == "ITALIC" %}'
-            '<i> {{ l.line }} </i>'
+            '<i>{{ l.line }}</i>'
             '{% else %}'
             '{{ l.line }}'
             '{% endif %}'

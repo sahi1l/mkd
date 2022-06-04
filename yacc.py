@@ -126,8 +126,8 @@ def p_expression_head(p):
     }
 
 def p_error(p):
-    print "Syntax error in input"
-    print p
+    print("Syntax error in input")
+    print(p)
 
 parser = yacc.yacc()
 

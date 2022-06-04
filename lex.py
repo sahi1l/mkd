@@ -29,7 +29,7 @@ def t_ULIST(t):
     return t
 
 def t_BOLD(t):
-    r'\*\*'
+    r'\*'
     return t
 
 def t_ITALIC(t):
@@ -46,7 +46,7 @@ def t_CR(t):
     return t
 
 def t_error(t):
-    print >> sys.stderr, 'Illegal character "%s"' % t.value[0]
+    print(f'Illegal character "{t.value[0]}"')
     t.lexer.skip(1)
 
 lexer = lex.lex()
